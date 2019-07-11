@@ -35,7 +35,7 @@
         <div id='utility'>
           <p><strong>Looking For</strong></p>
           <ul>
-            <li><a href='http://www.mozilla.org/'>mozilla.org</a></li>
+            <li><a href='https://www.mozilla.org/'>mozilla.org</a></li>
             <li><a href='https://wiki.mozilla.org/'>Wiki</a></li>
             <li><a href='https://developer.mozilla.org/'>Developer Center</a></li>
             <li><a href='http://www.firefox.com/'>Firefox</a></li>
@@ -208,12 +208,12 @@
           <div class='main'>
             <h2>Other Planets</h2>
             <ul class='planets'>
-              <li><a href='http://planet.mozilla.org/projects/'>Projects</a></li>
-              <li><a href="http://planet.mozilla.org/participation/">Planet Participation</a></li>
-              <li><a href='http://planet.mozilla.org/thunderbird/'>Planet Thunderbird</a></li>
+              <li><a href='https://planet.mozilla.org/projects/'>Projects</a></li>
+              <li><a href="https://planet.mozilla.org/participation/">Planet Participation</a></li>
+              <li><a href='https://planet.mozilla.org/thunderbird/'>Planet Thunderbird</a></li>
               <li><a href='https://quality.mozilla.org/'>Planet QMO</a></li>
-              <li><a href='http://planet.mozilla.org/ateam/'>Planet Automation</a></li>
-              <li><a href='http://planet.mozilla.org/research/'>Mozilla Research</a></li>
+              <li><a href='https://planet.mozilla.org/ateam/'>Planet Automation</a></li>
+              <li><a href='https://planet.mozilla.org/research/'>Mozilla Research</a></li>
             </ul>
 
             <div id='sidebar'/>
@@ -300,7 +300,7 @@
 
         <div id='footer'>
           <div id='footer-content'>
-            <p>Maintained by the <a href='https://bugzilla.mozilla.org/enter_bug.cgi?product=Websites&amp;component=planet.mozilla.org'>Planet Mozilla Module Team</a>. Powered by <a href='http://www.intertwingly.net/code/venus/'>Planet Venus</a>. View our <a href='http://www.mozilla.org/about/policies/privacy-policy.html'>Privacy Policy</a>.</p>
+            <p>Maintained by the <a href='https://bugzilla.mozilla.org/enter_bug.cgi?product=Websites&amp;component=planet.mozilla.org'>Planet Mozilla Module Team</a>. Powered by <a href='http://www.intertwingly.net/code/venus/'>Planet Venus</a>. View our <a href='https://www.mozilla.org/about/policies/privacy-policy.html'>Privacy Policy</a>.</p>
           </div>
         </div>
 
