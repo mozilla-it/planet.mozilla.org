@@ -16,12 +16,12 @@ feedparser==5.2.1
 html5lib==1.0.1
 httplib2==0.13.0
 idna==2.5                 # via cryptography, requests
-ipaddress==1.0.18
+ipaddress==1.0.18         # via cryptography
 lockfile==0.12.2
 msgpack==0.6.1            # via cachecontrol
 pycparser==2.18           # via cffi
 pyopenssl==17.5.0
 requests==2.21.0
-six==1.12.0
+six==1.12.0               # via cryptography, html5lib, pyopenssl
 urllib3==1.24.2           # via requests
 webencodings==0.5.1       # via html5lib

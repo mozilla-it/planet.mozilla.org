@@ -3,8 +3,6 @@ argparse
 feedparser
 html5lib
 httplib2
-ipaddress
 lockfile
 pyOpenSSL
 requests
-six
