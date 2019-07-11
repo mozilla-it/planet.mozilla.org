@@ -79,7 +79,7 @@
       <td>
         <a title="feed validator">
           <xsl:attribute name="href">
-            <xsl:text>http://feedvalidator.org/check?url=</xsl:text>
+            <xsl:text>https://feedvalidator.org/check?url=</xsl:text>
             <xsl:choose>
               <xsl:when test="planet:http_location">
                 <xsl:value-of select="planet:http_location"/>
@@ -89,11 +89,11 @@
               </xsl:when>
             </xsl:choose>
           </xsl:attribute>
-          <img src="http://feedvalidator.org/favicon.ico" hspace='2' vspace='1'/>
+          <img src="https://feedvalidator.org/favicon.ico" hspace='2' vspace='1'/>
         </a>
         <a title="validome">
           <xsl:attribute name="href">
-            <xsl:text>http://www.validome.org/rss-atom/validate?</xsl:text>
+            <xsl:text>https://www.validome.org/rss-atom/validate?</xsl:text>
             <xsl:text>viewSourceCode=1&amp;version=</xsl:text>
             <xsl:value-of select="$validome_format"/>
             <xsl:text>&amp;url=</xsl:text>
@@ -106,7 +106,7 @@
               </xsl:when>
             </xsl:choose>
           </xsl:attribute>
-          <img src="http://validome.org/favicon.ico" hspace='2' vspace='1'/>
+          <img src="https://validome.org/favicon.ico" hspace='2' vspace='1'/>
         </a>
       </td>
       <td>
