@@ -1,0 +1,14 @@
+/*
+  cache-control: max-age=300
+
+/*.jpg
+  cache-control: max-age=2592000
+
+/*.jpeg
+  cache-control: max-age=2592000
+
+/*.png
+  cache-control: max-age=2592000
+
+/*.gif
+  cache-control: max-age=2592000
