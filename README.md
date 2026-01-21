@@ -12,9 +12,21 @@ Atom feeds; Leonard Richardson's Beautiful Soup to correct markup issues;
 and either Tomas Styblo's templating engine or Daniel Viellard's implementation
 of XSLT to output static files in any format you can dream up.
 
-To get started, check out the documentation in the docs directory.  If you have
-any questions or comments, please don't hesitate to use the planet mailing list:
+To get started, check out the documentation in the docs directory.
 
-  http://lists.planetplanet.org/mailman/listinfo/devel
+------
 
-Keywords: feed, blog, aggregator, RSS, RDF, Atom, OPML, Python
+The Dockerfile file in this repository is for local testing as this application is in python 2.7
+
+Venus is a static file generator, what is pushed on the web are the static files from the `output` folder.
+
+Generating the site locally
+```bash
+# Build the image
+docker build --no-cache -t planet-mozilla .
+# Get into the container
+docker run --rm -it -v "$PWD":/app planet-mozilla
+# Generate the static site
+python planet.py configs/mozilla.ini
+exit
+```
