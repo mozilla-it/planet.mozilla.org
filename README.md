@@ -1,6 +1,8 @@
 Planet
 ------
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/87a58017-ee6f-43b5-bd0b-898bcd5642dd/deploy-status)](https://app.netlify.com/projects/planet-mozilla-it/deploys)
+
 Planet is a flexible feed aggregator. It downloads news feeds published by
 web sites and aggregates their content together into a single combined feed,
 latest news first.  This version of Planet is named Venus as it is the
