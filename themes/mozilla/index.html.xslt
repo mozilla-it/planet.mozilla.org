@@ -16,6 +16,14 @@
         <title><xsl:value-of select='atom:title'/></title>
         <meta charset='utf-8'/>
         <meta name='generator' content='{atom:generator}'/>
+        <meta name='description' content='Follow the pulse of the Mozilla project. Aggregated updates from the developers, designers, and volunteers building a better internet.' />
+        <meta property="og:site_name" content="Planet Mozilla" />
+        <meta property="og:title" content="Planet Mozilla" />
+        <meta property="og:description" content="Follow the pulse of the Mozilla project. Aggregated updates from the developers, designers, and volunteers building a better internet." />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:creator" content="@mozilla" />
+        <meta property="twitter:title" content="Planet Mozilla" />
+        <meta property="twitter:image" content="https://planet.mozilla.org/img/planet_banner.png" />
         <link href='planet.css' rel='stylesheet' type='text/css'/>
         <link href='img/mozilla-16.png' rel='shortcut icon' type='image/png'/>
         <xsl:if test='atom:link[@rel="self"]/@type'>
