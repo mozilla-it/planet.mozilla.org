@@ -12,7 +12,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Helvetica, Arial, Verdana, sans-serif;
-  background: #ffffff url('img/background.jpg') no-repeat scroll left top;
+  background: #fff url('img/background.jpg') no-repeat scroll -95px top;
   color: #000;
 }
 
@@ -27,7 +27,6 @@ a:hover {
 }
 
 #header {
-  margin: 10px 0 0 96px;
   height: 101px;
   background: url('img/header-bg.jpg');
 }
@@ -91,11 +90,17 @@ a:hover {
 #utility li:first-child {
   background: none;
   padding: 0;
-} /* @todo: needs ie fixing */
+}
+
+.main-container {
+  display: flex;
+  gap: 16px;
+  margin: 0 auto;
+  max-width: 1200px;
+}
 
 .main-content {
-  margin-left: 116px;
-  margin-right: 260px;
+  flex-grow: 1;
 }
 
 h2 {
@@ -138,14 +143,10 @@ h4 a {
   background-image: url('img/footer.jpg');
   background-position: center;
   background-repeat: no-repeat;
-  height: 207px;
 }
 
 #footer-content {
-  margin-left: auto;
-  margin-right: auto;
   padding-top: 100px;
-  max-width: 1150px;
 }
 
 #footer-content p {
@@ -156,35 +157,30 @@ h4 a {
   font-size: 0.9em;
 }
 
-.sidebar {
-  position: absolute;
-  top: 135px;
-  right: 0px;
-	width: 230px;
-	margin: 0 15px 0 0;
-	padding: 20px 0 0 0;
+.sidebar-content {
+  max-width: 300px;
 	font-size: 70%;
 }
 
-.sidebar .feeds,
-.sidebar .disclaimer {
+.sidebar-content .feeds,
+.sidebar-content .disclaimer {
   padding-left: 15px;
 }
 
-.sidebar .feeds p {
+.sidebar-content .feeds p {
   padding: 0;
   margin: 5px 0 0 0;
-} 
-.sidebar .feeds ul {
+}
+.sidebar-content .feeds ul {
   padding-left: 10px;
 }
-.sidebar .feeds li {
+.sidebar-content .feeds li {
   margin: 0;
   padding: 0px;
   display: inline;
 }
 
-.sidebar .feeds li {
+.sidebar-content .feeds li {
   background-image: url('img/feed-icon.png');
   background-repeat: no-repeat;
   background-position: 0 50%;
@@ -192,7 +188,7 @@ h4 a {
   margin: .4em 0;
 }
 
-.sidebar .feeds li.opml {
+.sidebar-content .feeds li.opml {
   background-image: url('img/opml-icon.png');
   background-repeat: no-repeat;
   background-position: 0 50%;
@@ -200,7 +196,7 @@ h4 a {
   margin: .4em 0;
 }
 
-.sidebar .feeds li.foaf {
+.sidebar-content .feeds li.foaf {
   background-image: url('img/foaf-icon.png');
   background-repeat: no-repeat;
   background-position: 0 50%;
@@ -208,39 +204,39 @@ h4 a {
   margin: .4em 0;
 }
 
-.sidebar .main {
-  background: transparent url('img/sidebar-back.png') no-repeat left top;
+.sidebar-content .main {
+  background: transparent url('img.sidebar-content-back.png') no-repeat left top;
   /*border-top:5px solid #0095B9;*/
   /*min-height:438px; padding:20px;*/
   padding: 15px 0 0 15px;
 }
 
-.sidebar .main ul.planets {
+.sidebar-content .main ul.planets {
   list-style-image:url('img/world.png');
   padding-left: 35px;
 }
 
-.sidebar .main ul.planets li {
-  font-size: 1.3em; 
+.sidebar-content .main ul.planets li {
+  font-size: 1.3em;
 }
 
-.sidebar .main ul.subscriptions li img {
+.sidebar-content .main ul.subscriptions li img {
   border: 0;
 }
 
-.sidebar .main .bottom {
+.sidebar-content .main .bottom {
   height: 28px;
   width: 100%;
-  background: transparent url('img/sidebar-bottom.png') no-repeat 50% bottom;
+  background: transparent url('img.sidebar-content-bottom.png') no-repeat 50% bottom;
   padding-bottom: 30px;
 }
 
-.sidebar .message {
+.sidebar-content .message {
   cursor: help;
   border-bottom: 1px dashed red;
 }
 
-.sidebar a.message:hover {
+.sidebar-content a.message:hover {
   cursor: help;
   background-color: #ffD0D0;
   border: 1px dashed red !important;
@@ -253,3 +249,15 @@ video {
   border: 1px solid lightgray;
   border-radius: 10px;
 }
+
+@media (width < 900px) {
+  .main-container {
+    flex-direction: column;
+    margin: 16px;
+  }
+  .main-content,
+  .sidebar-content {
+    min-width: 100%;
+  }
+}
+

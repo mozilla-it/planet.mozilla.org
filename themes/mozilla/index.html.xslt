@@ -15,6 +15,7 @@
       <head>
         <title><xsl:value-of select='atom:title'/></title>
         <meta charset='utf-8'/>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name='generator' content='{atom:generator}'/>
         <meta name='description' content='Follow the pulse of the Mozilla project. Aggregated updates from the developers, designers, and volunteers building a better internet.' />
         <meta property="og:site_name" content="Planet Mozilla" />
@@ -60,6 +61,7 @@
           </div>
         </div>
 
+      <div class="main-container">
         <div class='main-content'>
 
           <xsl:for-each select='atom:entry'>
@@ -188,7 +190,7 @@
 
         </div>
 
-        <div class='sidebar'>
+        <div class='sidebar-content'>
           <div class='disclaimer'>
             <h2><xsl:value-of select='atom:title'/></h2>
             <p>Collected here are the most recent blog posts from all over the Mozilla community.
@@ -225,7 +227,7 @@
               <li><a href='https://planet.mozilla.org/research/'>Mozilla Research</a></li>
             </ul>
 
-            <div id='sidebar'/>
+            <div id='sidebar'></div>
 
             <h2>Subscriptions</h2>
             <ul class='subscriptions'>
@@ -303,8 +305,8 @@
                 </li>
               </xsl:for-each>
             </ul>
-            <div class='bottom'/>
           </div>
+          <div class='bottom'></div>
         </div>
 
         <div id='footer'>
@@ -312,9 +314,10 @@
             <p>Maintained by the <a href='https://bugzilla.mozilla.org/enter_bug.cgi?product=Websites&amp;component=planet.mozilla.org'>Planet Mozilla Module Team</a>. Powered by <a href='http://www.intertwingly.net/code/venus/'>Planet Venus</a>. View our <a href='https://www.mozilla.org/about/policies/privacy-policy.html'>Privacy Policy</a>.</p>
           </div>
         </div>
+      </div>
+
 
       </body>
-
     </html>
   </xsl:template>
 
@@ -348,17 +351,37 @@
     <xsl:apply-templates/>
   </xsl:template>
 
-  <!-- Feedburner detritus -->
-  <xsl:template match="xhtml:div[@class='feedflare']"/>
+  <!-- Preserve headings -->
+  <xsl:template match="h1 | h2 | h3 | h4 | h5 | h6
+                       | xhtml:h1 | xhtml:h2 | xhtml:h3 | xhtml:h4 | xhtml:h5 | xhtml:h6">
+    <xsl:element name="{local-name()}">
+      <xsl:apply-templates/>
+    </xsl:element>
+  </xsl:template>
 
-  <!-- Strip site meter -->
-  <xsl:template match="xhtml:div[comment()[. = ' Site Meter ']]"/>
+  <!-- Preserve <p> -->
+  <xsl:template match="p | xhtml:p ">
+    <p>
+      <xsl:apply-templates/>
+    </p>
+  </xsl:template>
 
-  <!-- pass through everything else -->
-  <xsl:template match='@*|node()'>
-    <xsl:copy>
-      <xsl:apply-templates select='@*|node()'/>
-    </xsl:copy>
+  <!-- Preserve <a> and its attributes -->
+  <xsl:template match="a | xhtml:a ">
+    <a>
+      <xsl:copy-of select="@*"/>
+      <xsl:apply-templates/>
+    </a>
+  </xsl:template>
+
+  <!-- Strip all other elements but keep their text -->
+  <xsl:template match="*">
+    <xsl:apply-templates/>
+  </xsl:template>
+
+  <!-- Copy text nodes normally -->
+  <xsl:template match="text()">
+    <xsl:value-of select="."/>
   </xsl:template>
 
 </xsl:stylesheet>
