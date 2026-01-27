@@ -78,7 +78,7 @@
               </h2>
             </xsl:if>
 
-            <div class="news {atom:source/planet:css-id}">
+            <article class="news {atom:source/planet:css-id}">
 
               <xsl:if test="@xml:lang">
                 <xsl:attribute name="xml:lang">
@@ -185,7 +185,7 @@
                   </time>
                 </a>
               </div>
-            </div>
+            </article>
           </xsl:for-each>
 
         </div>
@@ -351,37 +351,20 @@
     <xsl:apply-templates/>
   </xsl:template>
 
-  <!-- Preserve headings -->
-  <xsl:template match="h1 | h2 | h3 | h4 | h5 | h6
-                       | xhtml:h1 | xhtml:h2 | xhtml:h3 | xhtml:h4 | xhtml:h5 | xhtml:h6">
-    <xsl:element name="{local-name()}">
-      <xsl:apply-templates/>
-    </xsl:element>
-  </xsl:template>
+  <!-- Feedburner detritus -->
+  <xsl:template match="xhtml:div[@class='feedflare']"/>
 
-  <!-- Preserve <p> -->
-  <xsl:template match="p | xhtml:p ">
-    <p>
-      <xsl:apply-templates/>
-    </p>
-  </xsl:template>
+  <!-- Stripe wordpress size-full class -->
+  <xsl:template match="xhtml:img[@class='size-full']"/>
 
-  <!-- Preserve <a> and its attributes -->
-  <xsl:template match="a | xhtml:a ">
-    <a>
-      <xsl:copy-of select="@*"/>
-      <xsl:apply-templates/>
-    </a>
-  </xsl:template>
+  <!-- Strip site meter -->
+  <xsl:template match="xhtml:div[comment()[. = ' Site Meter ']]"/>
 
-  <!-- Strip all other elements but keep their text -->
-  <xsl:template match="*">
-    <xsl:apply-templates/>
-  </xsl:template>
-
-  <!-- Copy text nodes normally -->
-  <xsl:template match="text()">
-    <xsl:value-of select="."/>
+  <!-- pass through everything else -->
+  <xsl:template match='@*|node()'>
+    <xsl:copy>
+      <xsl:apply-templates select='@*|node()'/>
+    </xsl:copy>
   </xsl:template>
 
 </xsl:stylesheet>
