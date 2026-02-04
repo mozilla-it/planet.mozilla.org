@@ -26,16 +26,17 @@
         <meta name="twitter:creator" content="@mozilla" />
         <meta property="twitter:title" content="Planet Mozilla" />
         <meta property="twitter:image" content="https://planet.mozilla.org/img/planet_banner.png" />
-        <link href='planet.css' rel='stylesheet' type='text/css'/>
-        <link href='img/mozilla-16.png' rel='shortcut icon' type='image/png'/>
+        <link href='assets/css/fonts.css' rel='stylesheet' type='text/css'/>
+        <link href='assets/css/planet.css' rel='stylesheet' type='text/css'/>
+        <link href='assets/img/mozilla-16.png' rel='shortcut icon' type='image/png'/>
         <xsl:if test='atom:link[@rel="self"]/@type'>
           <link rel='alternate' href='{atom:link[@rel="self"]/@href}'
             title='{atom:title/text()}' type='{atom:link[@rel="self"]/@type}'/>
         </xsl:if>
-        <script defer="defer" type="text/javascript" src="personalize.js">
+        <script defer="defer" type="text/javascript" src="assets/js/personalize.js">
           <xsl:comment><!--HTML Compatibility--></xsl:comment>
         </script>
-        <script defer="defer" type="text/javascript" src="query.js">
+        <script defer="defer" type="text/javascript" src="assets/js/query.js">
           <xsl:comment><!--HTML Compatibility--></xsl:comment>
         </script>
       </head>
@@ -251,7 +252,7 @@
                         </xsl:attribute>
                       </xsl:when>
                     </xsl:choose>
-                    <img src="img/feed-icon-10x10.png" alt="(feed)"/>
+                    <img src="assets/img/feed-icon-10x10.png" alt="(feed)"/>
                   </a>
                   <xsl:text> </xsl:text>
 
@@ -356,6 +357,11 @@
 
   <!-- Stripe wordpress size-full class -->
   <xsl:template match="xhtml:img[@class='size-full']"/>
+
+  <!-- Stripe servo.org <i> tags leaking in the main layout -->
+  <xsl:template match="xhtml:i[@class='fas fa-link']">
+    <xsl:apply-templates/>
+  </xsl:template>
 
   <!-- Strip site meter -->
   <xsl:template match="xhtml:div[comment()[. = ' Site Meter ']]"/>

@@ -1,0 +1,204 @@
+@font-face {
+  font-family: "MozillaHeadline";
+  src:
+    local("MozillaHeadline-Regular"),
+    url("../fonts/MozillaHeadline-Regular.woff") format("woff"),
+    url("../fonts/MozillaHeadline-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "MozillaHeadline";
+  src:
+    local("MozillaHeadline-Bold"),
+    url("../fonts/MozillaHeadline-Bold.woff") format("woff"),
+    url("../fonts/MozillaHeadline-Bold.woff2") format("woff2");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "MozillaHeadline";
+  src:
+    local("MozillaHeadline-BoldItalic"),
+    url("../fonts/MozillaHeadline-BoldItalic.woff") format("woff"),
+    url("../fonts/MozillaHeadline-BoldItalic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "MozillaHeadline";
+  src:
+    local("MozillaHeadline-ExtraLight"),
+    url("../fonts/MozillaHeadline-ExtraLight.woff") format("woff"),
+    url("../fonts/MozillaHeadline-ExtraLight.woff2") format("woff2");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "MozillaHeadline";
+  src:
+    local("MozillaHeadline-ExtraLightItalic"),
+    url("../fonts/MozillaHeadline-ExtraLightItalic.woff") format("woff"),
+    url("../fonts/MozillaHeadline-ExtraLightItalic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "MozillaHeadline";
+  src:
+    local("MozillaHeadline-Italic"),
+    url("../fonts/MozillaHeadline-Italic.woff") format("woff"),
+    url("../fonts/MozillaHeadline-Italic.woff2") format("woff2");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "MozillaHeadline";
+  src:
+    local("MozillaHeadline-Light"),
+    url("../fonts/MozillaHeadline-Light.woff") format("woff"),
+    url("../fonts/MozillaHeadline-Light.woff2") format("woff2");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "MozillaHeadline";
+  src:
+    local("MozillaHeadline-LightItalic"),
+    url("../fonts/MozillaHeadline-LightItalic.woff") format("woff"),
+    url("../fonts/MozillaHeadline-LightItalic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "MozillaHeadline";
+  src:
+    local("MozillaHeadline-SemiBold"),
+    url("../fonts/MozillaHeadline-SemiBold.woff") format("woff"),
+    url("../fonts/MozillaHeadline-SemiBold.woff2") format("woff2");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "MozillaHeadline";
+  src:
+    local("MozillaHeadline-SemiBoldItalic"),
+    url("../fonts/MozillaHeadline-SemiBoldItalic.woff") format("woff"),
+    url("../fonts/MozillaHeadline-SemiBoldItalic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "MozillaText";
+  src:
+    local("MozillaText-Regular"),
+    url("../fonts/MozillaText-Regular.woff") format("woff"),
+    url("../fonts/MozillaText-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "MozillaText";
+  src:
+    local("MozillaText-Bold"),
+    url("../fonts/MozillaText-Bold.woff") format("woff"),
+    url("../fonts/MozillaText-Bold.woff2") format("woff2");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "MozillaText";
+  src:
+    local("MozillaText-BoldItalic"),
+    url("../fonts/MozillaText-BoldItalic.woff") format("woff"),
+    url("../fonts/MozillaText-BoldItalic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "MozillaText";
+  src:
+    local("MozillaText-ExtraLight"),
+    url("../fonts/MozillaText-ExtraLight.woff") format("woff"),
+    url("../fonts/MozillaText-ExtraLight.woff2") format("woff2");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "MozillaText";
+  src:
+    local("MozillaText-ExtraLightItalic"),
+    url("../fonts/MozillaText-ExtraLightItalic.woff") format("woff"),
+    url("../fonts/MozillaText-ExtraLightItalic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "MozillaText";
+  src:
+    local("MozillaText-Italic"),
+    url("../fonts/MozillaText-Italic.woff") format("woff"),
+    url("../fonts/MozillaText-Italic.woff2") format("woff2");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "MozillaText";
+  src:
+    local("MozillaText-Light"),
+    url("../fonts/MozillaText-Light.woff") format("woff"),
+    url("../fonts/MozillaText-Light.woff2") format("woff2");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "MozillaText";
+  src:
+    local("MozillaText-LightItalic"),
+    url("../fonts/MozillaText-LightItalic.woff") format("woff"),
+    url("../fonts/MozillaText-LightItalic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "MozillaText";
+  src:
+    local("MozillaText-Medium"),
+    url("../fonts/MozillaText-Medium.woff") format("woff"),
+    url("../fonts/MozillaText-Medium.woff2") format("woff2");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "MozillaText";
+  src:
+    local("MozillaText-MediumItalic"),
+    url("../fonts/MozillaText-MediumItalic.woff") format("woff"),
+    url("../fonts/MozillaText-MediumItalic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "MozillaText";
+  src:
+    local("MozillaText-SemiBold"),
+    url("../fonts/MozillaText-SemiBold.woff") format("woff"),
+    url("../fonts/MozillaText-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "MozillaText";
+  src:
+    local("MozillaText-SemiBoldItalic"),
+    url("../fonts/MozillaText-SemiBoldItalic.woff") format("woff"),
+    url("../fonts/MozillaText-SemiBoldItalic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 600;
+}

@@ -11,9 +11,13 @@ ol {
 body {
   margin: 0;
   padding: 0;
-  font-family: Helvetica, Arial, Verdana, sans-serif;
-  background: #fff url('img/background.jpg') no-repeat scroll -95px top;
+  font-family: "MozillaText", sans-serif;
+  background: #fff url('../img/background.jpg') no-repeat scroll -95px top;
   color: #000;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: "MozillaHeadline", sans-serif;
 }
 
 a {
@@ -27,35 +31,32 @@ a:hover {
 }
 
 #header {
-  height: 101px;
-  background: url('img/header-bg.jpg');
+  background: url('../img/header-bg.jpg');
+  height: 100px;
+
+  & h1 {
+	  display: flex;
+	  margin: 0 16px;
+	  align-items: center;
+	  height: 100%;
+  }
+
+  & a {
+    color: #ffffff;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 
-#header #dino {
-  background: url('img/header-dino.jpg') no-repeat;
-  height: 101px;
+#dino {
+  background: url('../img/header-dino.jpg') no-repeat;
+  height: 100px;
   width: 300px;
 }
 
-#header h1 {
-  padding: 0;
-  margin: 0;
-  background: transparent url('img/logo.png') no-repeat 20px 35px;
-  z-index: 1;
-  height: 101px;
-}
-
-#header h1 a {
-  display: block;
-  text-indent: -9999px;
-  background: transparent url('img/logo.png') no-repeat 20px 35px;
-  overflow: hidden;
-  width: 265px;
-  height: 101px;
-}
-
 #utility {
-  font-family: "Trebuchet MS", sans-serif;
   font-size: 62.5%;
   margin: 0.8em 0 0.7em 30px;
   text-align: right;
@@ -82,7 +83,7 @@ a:hover {
 }
 
 #utility li {
-  background: transparent url('img/bullet_utility.png') no-repeat 4px center;
+  background: transparent url('../img/bullet_utility.png') no-repeat 4px center;
   padding-left: 16px;
   font-size: 11px;
 }
@@ -105,8 +106,6 @@ a:hover {
 }
 
 h2 {
-  font-family: Georgia, Times, "Times New Roman", serif;
-  font-weight: normal;
   font-size: 1.75em;
   color: #b72822;
   margin-bottom: 0;
@@ -144,7 +143,7 @@ h4 a {
 }
 
 #footer {
-  background-image: url('img/footer.jpg');
+  background-image: url('../img/footer.jpg');
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -185,7 +184,7 @@ h4 a {
 }
 
 .sidebar-content .feeds li {
-  background-image: url('img/feed-icon.png');
+  background-image: url('../img/feed-icon.png');
   background-repeat: no-repeat;
   background-position: 0 50%;
   padding: 3px 10px 3px 15px;
@@ -193,7 +192,7 @@ h4 a {
 }
 
 .sidebar-content .feeds li.opml {
-  background-image: url('img/opml-icon.png');
+  background-image: url('../img/opml-icon.png');
   background-repeat: no-repeat;
   background-position: 0 50%;
   padding: 3px 10px 3px 15px;
@@ -201,7 +200,7 @@ h4 a {
 }
 
 .sidebar-content .feeds li.foaf {
-  background-image: url('img/foaf-icon.png');
+  background-image: url('../img/foaf-icon.png');
   background-repeat: no-repeat;
   background-position: 0 50%;
   padding: 3px 10px 3px 24px;
@@ -216,7 +215,7 @@ h4 a {
 }
 
 .sidebar-content .main ul.planets {
-  list-style-image:url('img/world.png');
+  list-style-image:url('../img/world.png');
   padding-left: 35px;
 }
 
@@ -231,7 +230,7 @@ h4 a {
 .sidebar-content .main .bottom {
   height: 28px;
   width: 100%;
-  background: transparent url('img.sidebar-content-bottom.png') no-repeat 50% bottom;
+  background: transparent url('../img/sidebar-content-bottom.png') no-repeat 50% bottom;
   padding-bottom: 30px;
 }
 
