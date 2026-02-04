@@ -11,9 +11,13 @@ ol {
 body {
   margin: 0;
   padding: 0;
-  font-family: Helvetica, Arial, Verdana, sans-serif;
+  font-family: "MozillaText", sans-serif;
   background: #fff url('../img/background.jpg') no-repeat scroll -95px top;
   color: #000;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: "MozillaHeadline", sans-serif;
 }
 
 a {
@@ -27,35 +31,32 @@ a:hover {
 }
 
 #header {
-  height: 101px;
   background: url('../img/header-bg.jpg');
+  height: 100px;
+
+  & h1 {
+	  display: flex;
+	  margin: 0 16px;
+	  align-items: center;
+	  height: 100%;
+  }
+
+  & a {
+    color: #ffffff;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 
-#header #dino {
+#dino {
   background: url('../img/header-dino.jpg') no-repeat;
-  height: 101px;
+  height: 100px;
   width: 300px;
 }
 
-#header h1 {
-  padding: 0;
-  margin: 0;
-  background: transparent url('../img/logo.png') no-repeat 20px 35px;
-  z-index: 1;
-  height: 101px;
-}
-
-#header h1 a {
-  display: block;
-  text-indent: -9999px;
-  background: transparent url('../img/logo.png') no-repeat 20px 35px;
-  overflow: hidden;
-  width: 265px;
-  height: 101px;
-}
-
 #utility {
-  font-family: "Trebuchet MS", sans-serif;
   font-size: 62.5%;
   margin: 0.8em 0 0.7em 30px;
   text-align: right;
@@ -105,8 +106,6 @@ a:hover {
 }
 
 h2 {
-  font-family: Georgia, Times, "Times New Roman", serif;
-  font-weight: normal;
   font-size: 1.75em;
   color: #b72822;
   margin-bottom: 0;
