@@ -30,6 +30,23 @@ a:hover {
   text-decoration: underline;
 }
 
+.menu {
+  display: flex;
+  gap: 8px;
+  list-style-type: none;
+  padding: 0;
+
+  &.vertical {
+    flex-direction: column;
+  }
+}
+
+.menu-item {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
 #header {
   background: url('../img/header-bg.jpg');
   height: 100px;
@@ -174,63 +191,31 @@ h4 a {
   padding: 0;
   margin: 5px 0 0 0;
 }
-.sidebar-content .feeds ul {
-  padding-left: 10px;
-}
-.sidebar-content .feeds li {
-  margin: 0;
-  padding: 0px;
-  display: inline;
-}
-
-.sidebar-content .feeds li {
-  background-image: url('../img/feed-icon.png');
-  background-repeat: no-repeat;
-  background-position: 0 50%;
-  padding: 3px 10px 3px 15px;
-  margin: .4em 0;
-}
-
-.sidebar-content .feeds li.opml {
-  background-image: url('../img/opml-icon.png');
-  background-repeat: no-repeat;
-  background-position: 0 50%;
-  padding: 3px 10px 3px 15px;
-  margin: .4em 0;
-}
-
-.sidebar-content .feeds li.foaf {
-  background-image: url('../img/foaf-icon.png');
-  background-repeat: no-repeat;
-  background-position: 0 50%;
-  padding: 3px 10px 3px 24px;
-  margin: .4em 0;
-}
 
 .sidebar-content .main {
-  background: transparent url('img.sidebar-content-back.png') no-repeat left top;
-  /*border-top:5px solid #0095B9;*/
-  /*min-height:438px; padding:20px;*/
+  background: transparent url('../img/sidebar-back.png') no-repeat left top;
+  background-size: 100%;
   padding: 15px 0 0 15px;
 }
 
+.sidebar-content .feeds ul,
 .sidebar-content .main ul.planets {
-  list-style-image:url('../img/world.png');
-  padding-left: 35px;
+  padding-left: 10px;
 }
 
 .sidebar-content .main ul.planets li {
   font-size: 1.3em;
 }
 
-.sidebar-content .main ul.subscriptions li img {
-  border: 0;
+.sidebar-content .subscriptions {
+  list-style-type: none;
+  padding-left: 10px;
 }
 
 .sidebar-content .main .bottom {
   height: 28px;
   width: 100%;
-  background: transparent url('../img/sidebar-content-bottom.png') no-repeat 50% bottom;
+  background: transparent url('../img/sidebar-bottom.png') no-repeat 50% bottom;
   padding-bottom: 30px;
 }
 
