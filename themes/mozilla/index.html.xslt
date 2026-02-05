@@ -28,7 +28,9 @@
         <meta property="twitter:image" content="https://planet.mozilla.org/img/planet_banner.png" />
         <link href='assets/css/fonts.css' rel='stylesheet' type='text/css'/>
         <link href='assets/css/planet.css' rel='stylesheet' type='text/css'/>
-        <link href='assets/img/mozilla-16.png' rel='shortcut icon' type='image/png'/>
+        <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="assets/img/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="196x196" href="assets/img/favicon-196x196.png" />
+        <link rel="shortcut icon" href="favicon.ico" />
         <xsl:if test='atom:link[@rel="self"]/@type'>
           <link rel='alternate' href='{atom:link[@rel="self"]/@href}'
             title='{atom:title/text()}' type='{atom:link[@rel="self"]/@type}'/>
@@ -201,16 +203,31 @@
           <div class='feeds'>
             <h2>Subscribe to Planet</h2>
               <p>Feeds:</p>
-              <ul>
-                <li><a href='atom.xml'>Atom</a></li>
-                <li><a href='rss20.xml'>RSS 2.0</a></li>
-                <li><a href='rss10.xml'>RSS 1.0</a></li>
+              <ul class="menu vertical">
+                <li class="menu-item">
+                  <img src="assets/img/feed.svg" width="16" height="16" alt="" />
+                  <a href='atom.xml'>Atom</a>
+                </li>
+                <li class="menu-item">
+                  <img src="assets/img/feed.svg" width="16" height="16" alt="" />
+                  <a href='rss20.xml'>RSS 2.0</a>
+                </li>
+                <li class="menu-item">
+                  <img src="assets/img/feed.svg" width="16" height="16" alt="" />
+                  <a href='rss10.xml'>RSS 1.0</a>
+                </li>
               </ul>
               <p/>
               <p>Subscription list:</p>
-              <ul>
-                <li class='foaf'><a href='foafroll.xml'>FOAF</a></li>
-                <li class='opml'><a href='opml.xml'>OPML</a></li>
+              <ul class="menu vertical">
+                <li class="menu-item">
+                  <img src="assets/img/foaf.svg" width="16" height="12" alt="" />
+                  <a href='foafroll.xml'>FOAF</a>
+                </li>
+                <li class="menu-item">
+                  <img src="assets/img/opml.svg" width="16" height="16" alt="" />
+                  <a href='opml.xml'>OPML</a>
+                </li>
               </ul>
 
               <p>Last update: <time datetime="{atom:updated}" title="GMT">
@@ -219,13 +236,13 @@
 
           <div class='main'>
             <h2>Other Planets</h2>
-            <ul class='planets'>
-              <li><a href='https://planet.mozilla.org/projects/'>Projects</a></li>
-              <li><a href="https://planet.mozilla.org/participation/">Planet Participation</a></li>
-              <li><a href='https://planet.mozilla.org/thunderbird/'>Planet Thunderbird</a></li>
-              <li><a href='https://quality.mozilla.org/'>Planet QMO</a></li>
-              <li><a href='https://planet.mozilla.org/ateam/'>Planet Automation</a></li>
-              <li><a href='https://planet.mozilla.org/research/'>Mozilla Research</a></li>
+            <ul class='planets menu vertical'>
+              <li class="menu-item"><a href='https://planet.mozilla.org/projects/'>Projects</a></li>
+              <li class="menu-item"><a href="https://planet.mozilla.org/participation/">Planet Participation</a></li>
+              <li class="menu-item"><a href='https://planet.mozilla.org/thunderbird/'>Planet Thunderbird</a></li>
+              <li class="menu-item"><a href='https://quality.mozilla.org/'>Planet QMO</a></li>
+              <li class="menu-item"><a href='https://planet.mozilla.org/ateam/'>Planet Automation</a></li>
+              <li class="menu-item"><a href='https://planet.mozilla.org/research/'>Mozilla Research</a></li>
             </ul>
 
             <div id='sidebar'></div>
@@ -252,7 +269,7 @@
                         </xsl:attribute>
                       </xsl:when>
                     </xsl:choose>
-                    <img src="assets/img/feed-icon-10x10.png" alt="(feed)"/>
+                    <img src="assets/img/feed.svg" width="10" height="10" alt="" />
                   </a>
                   <xsl:text> </xsl:text>
 
