@@ -1,5 +1,5 @@
 * {
-  line-height: 1.4;
+  line-height: 1.5;
   padding: 0;
 }
 
@@ -18,7 +18,24 @@ body {
 
 h1,h2,h3,h4,h5,h6 {
   font-family: "MozillaHeadline", sans-serif;
+  line-height: 1.1;
 }
+
+h2 {
+  font-size: 1.75em;
+  color: #b72822;
+  margin-bottom: 0;
+}
+
+h4 {
+  margin: 0 0 0 15px;
+  border-bottom: 1px solid #ccc;
+}
+
+h4 a {
+  color: black;
+}
+
 
 a {
   color: #148cb5;
@@ -122,43 +139,42 @@ a:hover {
   max-width: 900px;
 }
 
-h2 {
-  font-size: 1.75em;
-  color: #b72822;
-  margin-bottom: 0;
+/* Post */
+.post {
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  box-shadow: #dddddd 0 0 8px 0;
+  margin-block: 16px;
+  padding-block: 8px;
+  padding-inline: 16px;
+
+  & img {
+	  width: 50% !important;
+	  height: 50% !important;
+  }
 }
 
-h3 {
-  margin-top: 10px;
-  border-bottom: 1px solid #ccc;
+.post-title a {
+  color: #000000;
+  font-size: 1.5rem;
 }
 
-h3 a {
-  color: black;
+.post-metadata {
+  color: #555555;
+  font-size: 0.85rem;
+  margin-block-start: -1.15rem;
 }
 
-h4 {
-  margin: 0 0 0 15px;
-  border-bottom: 1px solid #ccc;
+/* Label */
+.label {
+  background-color: #eeeeee;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  padding-block: 4px;
+  padding-inline: 8px;
 }
 
-h4 a {
-  color: black;
-}
-
-.entry {
-  margin-left: 15px;
-}
-
-.news .permalink {
-  text-align: right;
-}
-
-.news img {
-	width: 50% !important;
-	height: 50% !important;
-}
-
+/* Footer */
 #footer {
   background-image: url('../img/footer.jpg');
   background-position: center;
