@@ -346,4 +346,23 @@
     </xsl:copy>
   </xsl:template>
 
+  <!--
+    Planet Venus parser is not happy when it encounters an empty HTML element. As
+    a result, the style of an empty element can leak in the subsequent elements.
+    To prevent this problem, we add an HTML comment inside the empty elements
+    except for self-closing void elements.
+
+    See: https://bugzilla.mozilla.org/show_bug.cgi?id=1673540
+  -->
+  <xsl:template
+    match="*[not(normalize-space())
+             and not(contains(
+               '|area|base|br|col|embed|hr|img|input|link|meta|param|source|track|wbr|',
+               concat('|', local-name(), '|')
+             ))]">
+    <xsl:copy>
+      <xsl:copy-of select="@*"/>
+      <xsl:comment>empty element</xsl:comment>
+    </xsl:copy>
+  </xsl:template>
 </xsl:stylesheet>
