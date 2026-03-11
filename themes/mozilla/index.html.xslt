@@ -4,293 +4,109 @@
                 xmlns:planet="http://planet.intertwingly.net/"
                 xmlns="http://www.w3.org/1999/xhtml"
                 exclude-result-prefixes="atom planet xhtml">
-
   <xsl:output method="xml" omit-xml-declaration="yes"/>
+
+  <xsl:param name="page-title" select="'Homepage'"/>
+
+  <xsl:include href="partials/head.html.xslt" />
+  <xsl:include href="partials/navbar.html.xslt" />
+  <xsl:include href="partials/sidebar.html.xslt" />
 
   <xsl:template match="atom:feed">
     <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
     <html xmlns="http://www.w3.org/1999/xhtml">
-
-      <!-- head -->
-      <head>
-        <title><xsl:value-of select='atom:title'/></title>
-        <meta charset='utf-8'/>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name='generator' content='{atom:generator}'/>
-        <meta name='description' content='Follow the pulse of the Mozilla project. Aggregated updates from the developers, designers, and volunteers building a better internet.' />
-        <meta property="og:site_name" content="Planet Mozilla" />
-        <meta property="og:title" content="Planet Mozilla" />
-        <meta property="og:description" content="Follow the pulse of the Mozilla project. Aggregated updates from the developers, designers, and volunteers building a better internet." />
-        <meta property="og:image" content="https://planet.mozilla.org/img/planet_banner.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:creator" content="@mozilla" />
-        <meta property="twitter:title" content="Planet Mozilla" />
-        <meta property="twitter:image" content="https://planet.mozilla.org/img/planet_banner.png" />
-        <link href='assets/css/fonts.css' rel='stylesheet' type='text/css'/>
-        <link href='assets/css/planet.css' rel='stylesheet' type='text/css'/>
-        <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="assets/img/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="196x196" href="assets/img/favicon-196x196.png" />
-        <link rel="shortcut icon" href="favicon.ico" />
-        <xsl:if test='atom:link[@rel="self"]/@type'>
-          <link rel='alternate' href='{atom:link[@rel="self"]/@href}'
-            title='{atom:title/text()}' type='{atom:link[@rel="self"]/@type}'/>
-        </xsl:if>
-        <script defer="defer" type="text/javascript" src="assets/js/personalize.js">
-          <xsl:comment><!--HTML Compatibility--></xsl:comment>
-        </script>
-        <script defer="defer" type="text/javascript" src="assets/js/query.js">
-          <xsl:comment><!--HTML Compatibility--></xsl:comment>
-        </script>
-      </head>
-
+      <xsl:call-template name="head">
+        <xsl:with-param name="page-title" select="$page-title"/>
+      </xsl:call-template>
       <body>
+        <xsl:call-template name="navbar" />
+        <div class="main-container">
+          <div class='main-content'>
+            <h1 class="h3">Latest News</h1>
+            <!-- START Entries -->
+            <xsl:for-each select='atom:entry'>
+              <article class="post feed-{atom:source/planet:css-id}">
 
-        <div id='utility'>
-          <p><strong>Looking For</strong></p>
-          <ul>
-            <li><a href='https://www.mozilla.org/'>mozilla.org</a></li>
-            <li><a href='https://wiki.mozilla.org/'>Wiki</a></li>
-            <li><a href='https://developer.mozilla.org/'>Developer Center</a></li>
-            <li><a href='http://www.firefox.com/'>Firefox</a></li>
-            <li><a href='http://www.getthunderbird.com/'>Thunderbird</a></li>
-          </ul>
-        </div>
+                <xsl:if test="@xml:lang">
+                  <xsl:attribute name="xml:lang">
+                    <xsl:value-of select="@xml:lang"/>
+                  </xsl:attribute>
+                </xsl:if>
 
-        <div id='header'>
-          <div id='dino'>
-            <h1>
-              <a href='/' title='Back to home page'><xsl:value-of select='atom:title'/></a>
-            </h1>
-          </div>
-        </div>
-
-      <div class="main-container">
-        <div class='main-content'>
-          <!-- START Entries -->
-          <xsl:for-each select='atom:entry'>
-            <article class="post feed-{atom:source/planet:css-id}">
-
-              <xsl:if test="@xml:lang">
-                <xsl:attribute name="xml:lang">
-                  <xsl:value-of select="@xml:lang"/>
-                </xsl:attribute>
-              </xsl:if>
-
-              <!-- Entry header -->
-              <header>
-                <p>
-                  <span class="label">
-                    <xsl:if test="atom:source/atom:link[@rel='alternate']/@href">
-                      <xsl:attribute name="href">
-                        <xsl:value-of
-                          select="atom:source/atom:link[@rel='alternate']/@href"/>
-                      </xsl:attribute>
-                    </xsl:if>
-                    <xsl:attribute name="title">
-                      <xsl:value-of select="atom:source/atom:title"/>
-                    </xsl:attribute>
-                    <xsl:value-of select="atom:source/planet:name"/>
-                  </span>
-                </p>
-
-                <!-- entry title -->
-                <h3 class="post-title">
-                  <xsl:if test="string-length(atom:title) &gt; 0">
-                    <a href="{atom:link[@rel='alternate']/@href}">
-                      <xsl:if test="atom:title/@xml:lang != @xml:lang">
-                        <xsl:attribute name="xml:lang" select="{atom:title/@xml:lang}"/>
+                <!-- Entry header -->
+                <header>
+                  <p>
+                    <span class="post-source">
+                      <xsl:if test="atom:source/atom:link[@rel='alternate']/@href">
+                        <xsl:attribute name="href">
+                          <xsl:value-of
+                            select="atom:source/atom:link[@rel='alternate']/@href"/>
+                        </xsl:attribute>
                       </xsl:if>
-                      <xsl:value-of select="atom:title"/>
-                    </a>
-                  </xsl:if>
-                </h3>
+                      <xsl:attribute name="title">
+                        <xsl:value-of select="atom:source/atom:title"/>
+                      </xsl:attribute>
+                      <xsl:value-of select="atom:source/planet:name"/>
+                    </span>
+                  </p>
 
-                <!-- entry metadata -->
-                <p class="post-metadata">
+                  <!-- entry title -->
+                  <h2 class="post-title">
+                    <xsl:if test="string-length(atom:title) &gt; 0">
+                      <a href="{atom:link[@rel='alternate']/@href}">
+                        <xsl:if test="atom:title/@xml:lang != @xml:lang">
+                          <xsl:attribute name="xml:lang" select="{atom:title/@xml:lang}"/>
+                        </xsl:if>
+                        <xsl:value-of select="atom:title"/>
+                      </a>
+                    </xsl:if>
+                  </h2>
+
+                  <!-- entry metadata -->
+                  <p class="post-metadata">
+                    <xsl:choose>
+                      <xsl:when test="atom:author/atom:name">
+                        <xsl:if test="not(atom:link[@rel='license'] or
+                                          atom:source/atom:link[@rel='license'] or
+                                          atom:rights or atom:source/atom:rights)">
+                          <xsl:text> By </xsl:text>
+                        </xsl:if>
+                        <xsl:value-of select="atom:author/atom:name"/>
+                        <xsl:text> on </xsl:text>
+                      </xsl:when>
+                      <xsl:when test="atom:source/atom:author/atom:name">
+                        <xsl:if test="not(atom:link[@rel='license'] or
+                                          atom:source/atom:link[@rel='license'] or
+                                          atom:rights or atom:source/atom:rights)">
+                          <xsl:text> By </xsl:text>
+                        </xsl:if>
+                        <xsl:value-of select="atom:source/atom:author/atom:name"/>
+                        <xsl:text> on </xsl:text>
+                      </xsl:when>
+                    </xsl:choose>
+                    <time datetime="substring(atom:updated,1,10)">
+                      <xsl:value-of select="atom:updated/@planet:format"/>
+                    </time>
+                  </p>
+                </header>
+
+                <!-- entry content -->
+                <div class="post-content">
                   <xsl:choose>
-                    <xsl:when test="atom:author/atom:name">
-                      <xsl:if test="not(atom:link[@rel='license'] or
-                                        atom:source/atom:link[@rel='license'] or
-                                        atom:rights or atom:source/atom:rights)">
-                        <xsl:text> By </xsl:text>
-                      </xsl:if>
-                      <xsl:value-of select="atom:author/atom:name"/>
-                      <xsl:text> on </xsl:text>
+                    <xsl:when test="atom:content">
+                      <xsl:apply-templates select="atom:content"/>
                     </xsl:when>
-                    <xsl:when test="atom:source/atom:author/atom:name">
-                      <xsl:if test="not(atom:link[@rel='license'] or
-                                        atom:source/atom:link[@rel='license'] or
-                                        atom:rights or atom:source/atom:rights)">
-                        <xsl:text> By </xsl:text>
-                      </xsl:if>
-                      <xsl:value-of select="atom:source/atom:author/atom:name"/>
-                      <xsl:text> on </xsl:text>
-                    </xsl:when>
+                    <xsl:otherwise>
+                      <xsl:apply-templates select="atom:summary"/>
+                    </xsl:otherwise>
                   </xsl:choose>
-                  <time datetime="substring(atom:updated,1,10)">
-                    <xsl:value-of select="atom:updated/@planet:format"/>
-                  </time>
-                </p>
-              </header>
-
-              <!-- entry content -->
-              <div class="post-content">
-                <xsl:choose>
-                  <xsl:when test="atom:content">
-                    <xsl:apply-templates select="atom:content"/>
-                  </xsl:when>
-                  <xsl:otherwise>
-                    <xsl:apply-templates select="atom:summary"/>
-                  </xsl:otherwise>
-                </xsl:choose>
-              </div>
-            </article>
-          </xsl:for-each>
-          <!-- END Entries -->
+                </div>
+              </article>
+            </xsl:for-each>
+            <!-- END Entries -->
+          </div>
+          <xsl:call-template name="sidebar" />
         </div>
-
-        <div class='sidebar-content'>
-          <div class='disclaimer'>
-            <h2><xsl:value-of select='atom:title'/></h2>
-            <p>Collected here are the most recent blog posts from all over the Mozilla community.
-               The content here is unfiltered and uncensored, and represents the views of individual community members.
-               Individual posts are owned by their authors -- see original source for licensing information.</p>
-          </div>
-          <div class='feeds'>
-            <h2>Subscribe to Planet</h2>
-              <p>Feeds:</p>
-              <ul class="menu vertical">
-                <li class="menu-item">
-                  <img src="assets/img/feed.svg" width="16" height="16" alt="" />
-                  <a href='atom.xml'>Atom</a>
-                </li>
-                <li class="menu-item">
-                  <img src="assets/img/feed.svg" width="16" height="16" alt="" />
-                  <a href='rss20.xml'>RSS 2.0</a>
-                </li>
-                <li class="menu-item">
-                  <img src="assets/img/feed.svg" width="16" height="16" alt="" />
-                  <a href='rss10.xml'>RSS 1.0</a>
-                </li>
-              </ul>
-              <p/>
-              <p>Subscription list:</p>
-              <ul class="menu vertical">
-                <li class="menu-item">
-                  <img src="assets/img/foaf.svg" width="16" height="12" alt="" />
-                  <a href='foafroll.xml'>FOAF</a>
-                </li>
-                <li class="menu-item">
-                  <img src="assets/img/opml.svg" width="16" height="16" alt="" />
-                  <a href='opml.xml'>OPML</a>
-                </li>
-              </ul>
-
-              <p>Last update: <time datetime="{atom:updated}" title="GMT">
-                 <xsl:value-of select='atom:updated/@planet:format'/></time></p>
-          </div>
-
-          <div class='main'>
-            <h2>Other Planets</h2>
-            <ul class='planets menu vertical'>
-              <li class="menu-item"><a href='https://planet.mozilla.org/projects/'>Projects</a></li>
-              <li class="menu-item"><a href="https://planet.mozilla.org/participation/">Planet Participation</a></li>
-              <li class="menu-item"><a href='https://planet.mozilla.org/thunderbird/'>Planet Thunderbird</a></li>
-              <li class="menu-item"><a href='https://quality.mozilla.org/'>Planet QMO</a></li>
-              <li class="menu-item"><a href='https://planet.mozilla.org/ateam/'>Planet Automation</a></li>
-              <li class="menu-item"><a href='https://planet.mozilla.org/research/'>Mozilla Research</a></li>
-            </ul>
-
-            <div id='sidebar'></div>
-
-            <h2>Subscriptions</h2>
-            <ul class='subscriptions'>
-              <xsl:for-each select="planet:source">
-                <xsl:sort select="planet:name"/>
-                <xsl:variable name="id" select="atom:id"/>
-                <xsl:variable name="posts"
-                  select="/atom:feed/atom:entry[atom:source/atom:id = $id]"/>
-                <li>
-                  <!-- icon -->
-                  <a title="subscribe">
-                    <xsl:choose>
-                      <xsl:when test="planet:http_location">
-                        <xsl:attribute name="href">
-                          <xsl:value-of select="planet:http_location"/>
-                        </xsl:attribute>
-                      </xsl:when>
-                      <xsl:when test="atom:link[@rel='self']/@href">
-                        <xsl:attribute name="href">
-                          <xsl:value-of select="atom:link[@rel='self']/@href"/>
-                        </xsl:attribute>
-                      </xsl:when>
-                    </xsl:choose>
-                    <img src="assets/img/feed.svg" width="10" height="10" alt="" />
-                  </a>
-                  <xsl:text> </xsl:text>
-
-                  <!-- name -->
-                  <a>
-                    <xsl:if test="atom:link[@rel='alternate']/@href">
-                      <xsl:attribute name="href">
-                        <xsl:value-of select="atom:link[@rel='alternate']/@href"/>
-                      </xsl:attribute>
-                    </xsl:if>
-
-                    <xsl:choose>
-                      <xsl:when test="planet:message">
-                        <xsl:attribute name="class">
-                          <xsl:if test="$posts">active message</xsl:if>
-                          <xsl:if test="not($posts)">message</xsl:if>
-                        </xsl:attribute>
-                        <xsl:attribute name="title">
-                          <xsl:value-of select="planet:message"/>
-                        </xsl:attribute>
-                      </xsl:when>
-                      <xsl:when test="atom:title">
-                        <xsl:attribute name="title">
-                          <xsl:value-of select="atom:title"/>
-                       </xsl:attribute>
-                        <xsl:if test="$posts">
-                          <xsl:attribute name="class">active</xsl:attribute>
-                        </xsl:if>
-                      </xsl:when>
-                    </xsl:choose>
-                    <xsl:value-of select="planet:name"/>
-                  </a>
-
-                  <xsl:if test="$posts[string-length(atom:title) &gt; 0]">
-                    <ul>
-                      <xsl:for-each select="$posts">
-                        <xsl:if test="string-length(atom:title) &gt; 0">
-                          <li>
-                            <a href="{atom:link[@rel='alternate']/@href}">
-                              <xsl:if test="atom:title/@xml:lang != @xml:lang">
-                                <xsl:attribute name="xml:lang"
-                                  select="{atom:title/@xml:lang}"/>
-                              </xsl:if>
-                              <xsl:value-of select="atom:title"/>
-                            </a>
-                          </li>
-                        </xsl:if>
-                      </xsl:for-each>
-                    </ul>
-                  </xsl:if>
-                </li>
-              </xsl:for-each>
-            </ul>
-          </div>
-          <div class='bottom'></div>
-        </div>
-
-        <div id='footer'>
-          <div id='footer-content'>
-            <p>Maintained by the <a href='https://bugzilla.mozilla.org/enter_bug.cgi?product=Websites&amp;component=planet.mozilla.org'>Planet Mozilla Module Team</a>. Powered by <a href='http://www.intertwingly.net/code/venus/'>Planet Venus</a>. View our <a href='https://www.mozilla.org/about/policies/privacy-policy.html'>Privacy Policy</a>.</p>
-          </div>
-        </div>
-      </div>
-
-
       </body>
     </html>
   </xsl:template>
