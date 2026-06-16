@@ -21,11 +21,11 @@
         <meta property="og:site_name" content="Planet Mozilla" />
         <meta property="og:title" content="Planet Mozilla" />
         <meta property="og:description" content="Follow the pulse of the Mozilla project. Aggregated updates from the developers, designers, and volunteers building a better internet." />
-        <meta property="og:image" content="https://planet.mozilla.org/img/planet_banner.png" />
+        <meta property="og:image" content="https://planet.mozilla.org/assets/img/planet_banner.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:creator" content="@mozilla" />
         <meta property="twitter:title" content="Planet Mozilla" />
-        <meta property="twitter:image" content="https://planet.mozilla.org/img/planet_banner.png" />
+        <meta property="twitter:image" content="https://planet.mozilla.org/assets/img/planet_banner.png" />
         <link href='assets/css/fonts.css' rel='stylesheet' type='text/css'/>
         <link href='assets/css/planet.css' rel='stylesheet' type='text/css'/>
         <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="assets/img/apple-touch-icon.png" />
