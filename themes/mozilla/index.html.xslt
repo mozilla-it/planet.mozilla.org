@@ -9,7 +9,7 @@
 
   <xsl:template match="atom:feed">
     <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
-    <html xmlns="http://www.w3.org/1999/xhtml">
+    <html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
 
       <!-- head -->
       <head>
