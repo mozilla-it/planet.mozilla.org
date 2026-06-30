@@ -70,22 +70,10 @@
           <xsl:for-each select='atom:entry'>
             <article class="post feed-{atom:source/planet:css-id}">
 
-              <xsl:if test="@xml:lang">
-                <xsl:attribute name="xml:lang">
-                  <xsl:value-of select="@xml:lang"/>
-                </xsl:attribute>
-              </xsl:if>
-
               <!-- Entry header -->
               <header>
                 <p>
                   <span class="label">
-                    <xsl:if test="atom:source/atom:link[@rel='alternate']/@href">
-                      <xsl:attribute name="href">
-                        <xsl:value-of
-                          select="atom:source/atom:link[@rel='alternate']/@href"/>
-                      </xsl:attribute>
-                    </xsl:if>
                     <xsl:attribute name="title">
                       <xsl:value-of select="atom:source/atom:title"/>
                     </xsl:attribute>
@@ -97,9 +85,6 @@
                 <h3 class="post-title">
                   <xsl:if test="string-length(atom:title) &gt; 0">
                     <a href="{atom:link[@rel='alternate']/@href}">
-                      <xsl:if test="atom:title/@xml:lang != @xml:lang">
-                        <xsl:attribute name="xml:lang" select="{atom:title/@xml:lang}"/>
-                      </xsl:if>
                       <xsl:value-of select="atom:title"/>
                     </a>
                   </xsl:if>
@@ -127,7 +112,7 @@
                       <xsl:text> on </xsl:text>
                     </xsl:when>
                   </xsl:choose>
-                  <time datetime="substring(atom:updated,1,10)">
+                  <time datetime="{substring(atom:updated,1,10)}">
                     <xsl:value-of select="atom:updated/@planet:format"/>
                   </time>
                 </p>
@@ -173,7 +158,6 @@
                   <a href='rss10.xml'>RSS 1.0</a>
                 </li>
               </ul>
-              <p/>
               <p>Subscription list:</p>
               <ul class="menu vertical">
                 <li class="menu-item">
@@ -265,10 +249,6 @@
                         <xsl:if test="string-length(atom:title) &gt; 0">
                           <li>
                             <a href="{atom:link[@rel='alternate']/@href}">
-                              <xsl:if test="atom:title/@xml:lang != @xml:lang">
-                                <xsl:attribute name="xml:lang"
-                                  select="{atom:title/@xml:lang}"/>
-                              </xsl:if>
                               <xsl:value-of select="atom:title"/>
                             </a>
                           </li>
@@ -280,12 +260,12 @@
               </xsl:for-each>
             </ul>
           </div>
-          <div class='bottom'></div>
-        </div>
+          <div class='bottom'><xsl:comment>empty element</xsl:comment></div>
 
-        <div id='footer'>
-          <div id='footer-content'>
-            <p>Maintained by the <a href='https://bugzilla.mozilla.org/enter_bug.cgi?product=Websites&amp;component=planet.mozilla.org'>Planet Mozilla Module Team</a>. Powered by <a href='http://www.intertwingly.net/code/venus/'>Planet Venus</a>. View our <a href='https://www.mozilla.org/about/policies/privacy-policy.html'>Privacy Policy</a>.</p>
+          <div id='footer'>
+            <div id='footer-content'>
+              <p>Maintained by the <a href='https://bugzilla.mozilla.org/enter_bug.cgi?product=Websites&amp;component=planet.mozilla.org'>Planet Mozilla Module Team</a>. Powered by <a href='http://www.intertwingly.net/code/venus/'>Planet Venus</a>. View our <a href='https://www.mozilla.org/about/policies/privacy-policy.html'>Privacy Policy</a>.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -298,11 +278,6 @@
   <!-- xhtml content -->
   <xsl:template match='atom:content/xhtml:div | atom:summary/xhtml:div'>
     <xsl:copy>
-      <xsl:if test='../@xml:lang and not(../@xml:lang = ../../@xml:lang)'>
-        <xsl:attribute name='xml:lang'>
-          <xsl:value-of select='../@xml:lang'/>
-        </xsl:attribute>
-      </xsl:if>
       <xsl:attribute name='class'>content</xsl:attribute>
       <xsl:apply-templates select='@*|node()'/>
     </xsl:copy>
@@ -311,11 +286,6 @@
   <!-- plain text content -->
   <xsl:template match='atom:content/text() | atom:summary/text()'>
     <div class='content' xmlns='http://www.w3.org/1999/xhtml'>
-      <xsl:if test='../@xml:lang and not(../@xml:lang = ../../@xml:lang)'>
-        <xsl:attribute name='xml:lang'>
-          <xsl:value-of select='../@xml:lang'/>
-        </xsl:attribute>
-      </xsl:if>
       <xsl:copy-of select='.'/>
     </div>
   </xsl:template>

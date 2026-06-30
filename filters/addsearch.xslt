@@ -2,6 +2,11 @@
                 xmlns:xhtml="http://www.w3.org/1999/xhtml"
                 xmlns="http://www.w3.org/1999/xhtml">
 
+  <!-- Match the serialization of index.html.xslt: XML output with no XML
+       declaration. Without this, libxslt prepends "<?xml version='1.0'?>" to
+       the page, a forbidden processing instruction in a text/html document. -->
+  <xsl:output method="xml" omit-xml-declaration="yes" encoding="utf-8"/>
+
   <!-- insert search form -->
   <xsl:template match="xhtml:div[@id='sidebar']">
     <xsl:copy>
