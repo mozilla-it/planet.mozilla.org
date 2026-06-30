@@ -2,7 +2,14 @@ CacheControl
 argparse
 feedparser
 html5lib
-httplib2
+httplib2>=0.22.0
 lockfile
-pyOpenSSL
-requests
+pyOpenSSL>=21.0.0
+requests>=2.27.1
+
+# Security floors for transitive deps (last Python 2.7-compatible releases).
+# These are the newest versions installable on Python 2.7; the remaining
+# Dependabot alerts require Python 3 and cannot be resolved without migrating
+# Planet Venus off Python 2.7.
+cryptography>=3.3.2
+urllib3>=1.26.20
