@@ -25,6 +25,14 @@
         <script type="text/javascript" src="personalize.js">
           <xsl:comment><!--HTML Compatibility--></xsl:comment>
         </script>
+        <script>
+          <xsl:text disable-output-escaping="yes"><![CDATA[
+          // If we're at /projects without a trailing slash, force the slash
+          if (!window.location.pathname.endsWith('/') && !window.location.pathname.includes('.')) {
+            window.location.replace(window.location.href + '/');
+          }
+          ]]></xsl:text>
+        </script>
       </head>
 
       <body>
